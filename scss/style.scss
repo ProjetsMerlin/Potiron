@@ -1,0 +1,11 @@
+@import 'reset.min.css';
+@import "mixins_variables";
+@import "structure";
+
+.flex {
+  @include flex();
+}
+
+.btn {
+  @include boutton();
+}

@@ -1,0 +1,56 @@
+/*VARIABLES*/
+$primary_color: red;
+$secondary_color: #000000;
+$degrade_fonce_bas: linear-gradient(164deg, $primary_color 20%, #07141B 80%);
+$transition: all .7s ease;
+
+/*MIXINS*/
+@mixin flex($direction:row,$espace:space-around,$alignement:center,$alignement_contenu:flex-start) {
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	-ms-flex-direction: $direction;
+	flex-direction: $direction;
+	-webkit-box-pack: $espace;
+	-ms-flex-pack: $espace;
+	justify-content: $espace;
+	-webkit-box-align: $alignement;
+	-ms-flex-align: $alignement;
+	align-items: $alignement;
+	-ms-flex-line-pack: $alignement_contenu;
+	align-content: $alignement_contenu;
+	-ms-flex-wrap: nowrap;
+	flex-wrap: nowrap;
+}
+@mixin ombre($opacite_ombre) {
+	-webkit-box-shadow: 0px 3px 9px 4px rgba(0,0,0,$opacite_ombre);
+	box-shadow: 0px 3px 9px 4px rgba(0,0,0,$opacite_ombre);
+}
+
+@mixin boutton($couleur:$primary_color,$fond:$secondary_color,$opacite_ombre:0.7) {
+	//@include flex(row,center,center,flex-start);
+	display: inline-block;
+	width: 260px;
+	height: 60px;
+	color: $couleur;
+	background: $fond;
+
+	text-align: center;
+	border: none;
+	line-height: 60px;
+	@include ombre($opacite_ombre);
+	cursor: pointer;
+
+	-webkit-transition: $transition;
+	-o-transition: $transition;
+	transition: $transition;
+
+	&:hover,
+	&:active {
+		color: $fond;
+		background: $couleur;
+	}
+}
+
